@@ -119,5 +119,13 @@ let saved=JSON.parse(localStorage.getItem("aimcore-settings")||"{}");
 ids.forEach(id=>{if(saved[id]!==undefined){document.getElementById(id).value=saved[id];document.getElementById(id).dispatchEvent(new Event("input"));}});
 document.getElementById("best").textContent="Best: "+(localStorage.getItem("aimcore-best")||0);
 </script>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js");
+  });
+}
+</script>
 </body>
 </html>
+
